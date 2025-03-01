@@ -1,0 +1,20 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore virtual environment (if using one)
+venv/
+env/
+
+# Ignore IDE config files (VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Ignore OneDrive temp files (since you're working inside OneDrive)
+*.tmp
+*.lnk
