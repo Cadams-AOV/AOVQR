@@ -2,24 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AOV Admin Login</title>
-  <!-- Link to your CSS file -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <h2>AOV Admin Panel - Login</h2>
-  
-  <!-- Form posts to /admin-login, which is handled in app.py -->
-  <form method="POST" action="/admin-login">
-    <div class="form-group">
-      <label for="admin_username">Admin Username:</label>
-      <input type="text" id="admin_username" name="admin_username" required>
-    </div>
-    <div class="form-group">
-      <label for="admin_password">Admin Password:</label>
-      <input type="password" id="admin_password" name="admin_password" required>
-    </div>
-    <button type="submit">Login</button>
-  </form>
+  <!-- Dark Mode Toggle Button -->
+  <button class="toggle-btn" id="toggle-dark-mode">Toggle Dark Mode</button>
+
+  <!-- Login Form Content -->
+  <div class="container">
+    <h1>Admin Login</h1>
+    <form method="POST" action="{{ url_for('admin_login') }}">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!-- JavaScript to toggle dark mode -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-dark-mode');
+    toggleBtn.addEventListener('click', function() {
+      document.body.classList.toggle('dark-theme');
+    });
+  </script>
 </body>
 </html>
