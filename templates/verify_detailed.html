@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="certificate">
+        <h1>Certificate of Authenticity</h1>
+        <h2>{{ licensee }}</h2>
+        <p>License Serial: {{ license_serial }}</p>
+        <p>License Type: {{ license_type }}</p>
+        <p>Status: {{ license_status }}</p>
+        <p>Exclusivity: {{ license_exclusivity }}</p>
+        <p>Issue Date: {{ issue_date }}</p>
+        <p>Expiration Date: {{ expiration_date }}</p>
+        <p>Company Name: {{ company_name }}</p>
+        <p>Company Address: {{ company_address }}</p>
+        <p>Phone: {{ phone_number }}</p>
+        <img src="{{ url_for('static', filename='images/qrcodes/' + license_serial + '.png') }}" alt="QR Code">
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify License</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input, button { font-size: 18px; padding: 10px; margin: 10px; }
+    #result { margin-top: 20px; font-size: 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>Verify Your License</h2>
+  <input type="text" id="licenseSerial" placeholder="Enter License Serial">
+  <button onclick="verifyLicense()">Verify</button>
+
+  <div id="result"></div>
+
+  <!-- Load the external JS file -->
+  <script src="static/js/verify.js"></script>
+
+</body>
+</html>
