@@ -3,8 +3,15 @@ import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, session
 import qrcode
 
+###################################
+#   Retrieve Credentials Securely  #
+###################################
+# These come from Render's Environment Variables
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "default_admin")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "default_password")
+
 app = Flask(__name__)
-app.secret_key = 'some-secret-key'  # <-- Replace with a real secret in production
+app.secret_key = 'some-secret-key'  # For production, consider using os.getenv("SECRET_KEY")
 
 DB_NAME = 'certificates.db'
 QR_FOLDER = 'static/images/qrcodes'
@@ -44,15 +51,14 @@ def index():
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
     """
-    Admin login route with hard-coded credentials.
-    For production, store credentials securely or use a database.
+    Admin login route using environment variables for credentials.
     """
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         
-        # Hard-coded credentials (replace for production)
-        if username == 'CadamsII' and password == 'A7d5A0m3$!':
+        # Compare to environment variables instead of hardcoding
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
             session['admin'] = True
             return redirect(url_for('admin_panel'))
         else:
